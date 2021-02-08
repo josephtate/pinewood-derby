@@ -1,7 +1,7 @@
 module TrackSensor
   class MicroWizardFastTrack  < TrackSensor::Base
     def times_regex
-      /^@?([A-H]=\d\.\d+[!"\#$%& ]? ?)+\r?$/
+      /^[\r@>]*([A-H]=\d\.\d+[!"\#$%& ]? ?)+\r?$/
     end
 
     def new_race
@@ -29,7 +29,7 @@ module TrackSensor
       rank_symbols = {0 => '!', 1 => '"', 2 => '#', 3 => '$', 4 => '%', 5 => '&', nil => ' '}
       ranks = ranks.map { |numeric_rank| rank_symbols[numeric_rank] }
 
-      %Q(@A=#{times[0]}#{rank_symbols[0]} B=#{times[1]}#{rank_symbols[1]} C=#{times[2]}#{rank_symbols[2]} D=#{times[3]}#{rank_symbols[3]} E=#{times[4]}#{rank_symbols[4]} F=#{times[5]}#{rank_symbols[5]} \r\n)
+      %Q(@>A=#{times[0]}#{rank_symbols[0]} B=#{times[1]}#{rank_symbols[1]} C=#{times[2]}#{rank_symbols[2]} D=#{times[3]}#{rank_symbols[3]} E=#{times[4]}#{rank_symbols[4]} F=#{times[5]}#{rank_symbols[5]} \r\n)
     end
 
   private
@@ -37,7 +37,7 @@ module TrackSensor
     def parse_times(times_string)
       times = times_string.chomp.split(/ +/).map do |value|
         time = value[/\d\.\d+/].to_f
-        track_letter = value[/^@?([A-H])=/, 1]
+        track_letter = value[/^[\r@>]*([A-H])=/, 1]
         {:time => time, :track => convert_track_letter_to_number(track_letter)}
       end
 

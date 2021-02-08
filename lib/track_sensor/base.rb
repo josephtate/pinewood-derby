@@ -35,8 +35,9 @@ class TrackSensor::Base
   # on channel "race results" in the format:
   #   [{track: 2, time: 3.456}, {track: 1, time: 4.105}, ...]
   def handle_device_input(_, line)
-    return debug "Ignoring non-time data: #{line}" unless line =~ times_regex
-    debug "Read times: #{line}"
+    esc_line = URI.escape line
+    return debug "Ignoring non-time data: #{esc_line}" unless line =~ times_regex
+    debug "Read times: #{esc_line}"
     times = parse_times line
     publish 'race results', times
   end

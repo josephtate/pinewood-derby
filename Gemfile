@@ -9,8 +9,10 @@ gem 'serialport'
 gem 'bootstrap-sass', '~> 2.2.1.1'
 gem 'celluloid', require: 'celluloid/autostart'
 gem 'celluloid-io'
-gem 'celluloid-io-serialport', require: 'celluloid/io/serial_port'
+gem 'celluloid-io-serialport', require: 'celluloid/io/serial_port', :git=>'https://github.com/josephtate/celluloid-io-serialport.git'
+
 gem 'lodash-rails'
+gem 'nokogiri', '>= 1.10.8'
 
 group :development do
   gem 'pry-rails'

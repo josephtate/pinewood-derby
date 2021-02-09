@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/josephtate/celluloid-io-serialport.git
+  revision: b6d315a582b1d6b41b5ed967e54c8b68b284ca59
+  specs:
+    celluloid-io-serialport (0.0.1)
+      celluloid-io (~> 0.15.0)
+      serialport (~> 1.3.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -44,14 +52,11 @@ GEM
     byebug (2.7.0)
       columnize (~> 0.3)
       debugger-linecache (~> 1.2)
-    celluloid (0.16.0)
-      timers (~> 4.0.0)
+    celluloid (0.18.0)
+      timers (~> 4)
     celluloid-io (0.15.0)
       celluloid (>= 0.15.0)
       nio4r (>= 0.5.0)
-    celluloid-io-serialport (0.0.1)
-      celluloid-io (~> 0.15.0)
-      serialport (~> 1.1)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -119,7 +124,6 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
-    hitimes (1.2.2)
     http_parser.rb (0.6.0)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
@@ -146,7 +150,7 @@ GEM
     minitest (5.11.3)
     multi_json (1.14.1)
     nenv (0.1.1)
-    nio4r (1.0.1)
+    nio4r (2.5.2)
     nokogiri (1.10.8)
       mini_portile2 (~> 2.4.0)
     notiffany (0.0.3)
@@ -248,8 +252,7 @@ GEM
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (1.4.1)
-    timers (4.0.1)
-      hitimes
+    timers (4.3.2)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     uglifier (2.3.2)
@@ -266,7 +269,7 @@ DEPENDENCIES
   bootstrap-sass (~> 2.2.1.1)
   celluloid
   celluloid-io
-  celluloid-io-serialport
+  celluloid-io-serialport!
   coffee-rails
   database_cleaner
   faker
@@ -276,6 +279,7 @@ DEPENDENCIES
   guard-rspec
   jquery-rails
   lodash-rails
+  nokogiri (>= 1.10.8)
   pry-byebug
   pry-rails
   rails (~> 4.2.0)
@@ -288,3 +292,6 @@ DEPENDENCIES
   teaspoon
   thin-rails
   uglifier (>= 1.0.3)
+
+BUNDLED WITH
+   1.17.3
